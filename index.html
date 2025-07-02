@@ -20,7 +20,7 @@
 <body class="bg-yellow-50 text-gray-800 font-sans">
   <div class="max-w-5xl mx-auto p-6">
     <img src="images/banner.jpg" alt="Banner" class="w-full rounded-lg mb-6 shadow-lg object-cover max-h-[300px]" loading="lazy">
-    <header class="flex justify-between items-center mb-6">
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
       <div class="flex items-center space-x-4">
         <img src="images/logo.png" alt="Logo" class="h-12 w-auto">
         <h1 class="text-2xl font-bold" data-i18n="title">Our Masala Products</h1>
@@ -32,12 +32,12 @@
       </select>
     </header>
 
-    <section id="productSection" class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">Our Products</h2>
+    <section id="productSection" class="mt-8 bg-white p-6 rounded shadow-md">
+      <h2 class="text-3xl font-bold mb-6 text-center text-yellow-900">🌶️ Our Products</h2>
       <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
     </section>
 
-    <footer class="mt-10 text-center space-y-2">
+    <footer class="mt-10 text-center space-y-2 bg-yellow-100 py-6 rounded">
       <p data-i18n="contact">Contact Us</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="tel:+919876543210" class="text-blue-600 underline">📞 +91 9787781569</a>
@@ -45,7 +45,7 @@
       </div>
     </footer>
 
-    <div class="mt-6 text-center">
+    <div class="mt-6 text-center bg-white p-4 rounded shadow inline-block">
       <a href="assets/masala-catalog.pdf" class="text-red-600 underline font-medium" download>
         📄 Download Our Product Brochure
       </a>
