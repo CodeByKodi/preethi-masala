@@ -1,0 +1,45 @@
+{
+  "masala": [
+    {
+      "name": "Sambar Powder",
+      "desc": "Spicy and aromatic blend for sambar.",
+      "image": "sambar.jpg",
+      "sizes": [
+        "100g",
+        "250g",
+        "500g"
+      ]
+    },
+    {
+      "name": "Rasam Powder",
+      "desc": "Tangy blend for rasam preparation.",
+      "image": "rasam.jpg",
+      "sizes": [
+        "100g",
+        "250g"
+      ]
+    }
+  ],
+  "wholeSpices": [
+    {
+      "name": "Coriander Seeds",
+      "desc": "Sun-dried whole coriander seeds.",
+      "image": "coriander.jpg",
+      "sizes": [
+        "100g",
+        "250g"
+      ]
+    }
+  ],
+  "readyMix": [
+    {
+      "name": "Puliyodharai Mix",
+      "desc": "Ready to use tamarind rice paste.",
+      "image": "puliyodharai.jpg",
+      "sizes": [
+        "100g",
+        "200g"
+      ]
+    }
+  ]
+}
