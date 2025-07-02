@@ -35,10 +35,11 @@ async function loadProducts() {
     data[cat].forEach((item) => {
       catContainer.innerHTML += `
         <div class="bg-white rounded shadow p-4">
-          <img src="images/${item.image}" class="w-full h-48 object-cover rounded mb-3" alt="${item.name}">
-          <h3 class="font-bold text-lg">${item.name}</h3>
-          <p class="text-sm">${item.desc}</p>
-          <p class="text-xs mt-2">Sizes: ${item.sizes.join(", ")}</p>
+        <img src="images/${item.image}" loading="lazy" class="w-full h-48 object-cover rounded mb-3" alt="${item.name}">
+        <h3 class="font-bold text-lg">${item.name}</h3>
+        <p class="text-sm">${item.desc}</p>
+        <p class="text-xs mt-2">Sizes: ${item.sizes.join(", ")}</p>
+        <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20${encodeURIComponent(item.name)}" target="_blank" class="mt-3 inline-block text-green-600 underline text-sm">💬 Order via WhatsApp</a>
         </div>
       `;
     });
