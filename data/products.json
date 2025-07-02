@@ -1,86 +1,87 @@
 {
   "masala": [
     {
-      "name": "Chettinad Chicken Masala",
-      "desc": "Authentic Chettinad-style spice blend for chicken curry.",
+      "nameKey": "chettinad_chicken_masala.name",
+      "descKey": "chettinad_chicken_masala.desc",
       "image": "chettinad-chicken-masala-1734760157-7700046.jpeg",
-      "sizes": ["100g", "250g", "500g"]
+      "sizes": ["100g", "250g", "500g"],
+      "video": "https://www.youtube.com/watch?v=abc123xyz"
     },
     {
-      "name": "Chicken 65 Masala",
-      "desc": "Crispy and spicy mix for Chicken 65 preparation.",
+      "nameKey": "chicken_65_masala.name",
+      "descKey": "chicken_65_masala.desc",
       "image": "chicken-65-masala-1734760213-7700047.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Chicken Gravy Masala",
-      "desc": "Rich and aromatic blend for chicken gravy dishes.",
+      "nameKey": "chicken_gravy_masala.name",
+      "descKey": "chicken_gravy_masala.desc",
       "image": "chicken-gravy-masala-1734760261-7700048.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Idli Chilli Powder",
-      "desc": "Spicy chutney powder perfect for idli and dosa.",
+      "nameKey": "idli_chilli_powder.name",
+      "descKey": "idli_chilli_powder.desc",
       "image": "idli-chilli-powder-1734760766-7751445.jpeg",
       "sizes": ["100g"]
     },
     {
-      "name": "Kulambu Chilli Powder",
-      "desc": "Traditional tamarind curry chilli powder.",
+      "nameKey": "kulambu_chilli_powder.name",
+      "descKey": "kulambu_chilli_powder.desc",
       "image": "kulambu-chilli-powder-1734761037-7751466.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Red Chilli Powder",
-      "desc": "Pure and vibrant red chilli powder.",
+      "nameKey": "red_chilli_powder.name",
+      "descKey": "red_chilli_powder.desc",
       "image": "red-chilli-powder-1734761085-7751469.jpeg",
       "sizes": ["100g", "500g"]
     },
     {
-      "name": "Meat Curry Masala",
-      "desc": "Spice mix tailored for rich meat curry flavors.",
+      "nameKey": "meat_curry_masala.name",
+      "descKey": "meat_curry_masala.desc",
       "image": "meat-curry-masala-1734760411-7700049.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Egg Gravy Masala",
-      "desc": "Perfect masala blend for flavorful egg gravies.",
+      "nameKey": "egg_gravy_masala.name",
+      "descKey": "egg_gravy_masala.desc",
       "image": "egg-gravy-masala-1734760496-7751421.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Fish Roast Masala",
-      "desc": "Spicy and tangy roast masala for fish dishes.",
+      "nameKey": "fish_roast_masala.name",
+      "descKey": "fish_roast_masala.desc",
       "image": "fish-roast-masala-1734760566-7751426.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Garam Masala",
-      "desc": "Aromatic all-purpose Indian spice blend.",
+      "nameKey": "garam_masala.name",
+      "descKey": "garam_masala.desc",
       "image": "garam-masala-1734760644-7751430.jpeg",
       "sizes": ["100g"]
     },
     {
-      "name": "Curry Masala Powder",
-      "desc": "Perfect base for traditional South Indian curries.",
+      "nameKey": "curry_masala_powder.name",
+      "descKey": "curry_masala_powder.desc",
       "image": "curry-masala-powder-1734761341-7751500.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Sambar Powder",
-      "desc": "Classic spice mix for South Indian sambar.",
+      "nameKey": "sambar_powder.name",
+      "descKey": "sambar_powder.desc",
       "image": "sambar-powder-1734761396-7751502.jpeg",
       "sizes": ["100g", "250g", "500g"]
     },
     {
-      "name": "Coriander Powder",
-      "desc": "Fresh ground coriander powder for all curries.",
+      "nameKey": "coriander_powder.name",
+      "descKey": "coriander_powder.desc",
       "image": "coriander-powder-1734761454-7751508.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "name": "Turmeric Powder",
-      "desc": "Bright and pure haldi powder for everyday cooking.",
+      "nameKey": "turmeric_powder.name",
+      "descKey": "turmeric_powder.desc",
       "image": "turmeric-powder-1734761497-7751509.jpeg",
       "sizes": ["100g", "250g"]
     }
