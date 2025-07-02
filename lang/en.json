@@ -1,10 +1,8 @@
 {
-  "title": "Our Masala Products",
-  "contact": "Contact Us",
   "categories": {
     "masala": "Masala Powders",
-    "wholeSpices": "Whole Spices",
-    "readyMix": "Ready Mixes"
+    "readyMix": "Ready Mixes",
+    "wholeSpices": "Whole Spices"
   },
   "chettinad_chicken_masala": {
     "name": "Chettinad Chicken Masala",
@@ -18,21 +16,13 @@
     "name": "Chicken Gravy Masala",
     "desc": "Rich and aromatic blend for chicken gravy dishes."
   },
-  "idli_chilli_powder": {
-    "name": "Idli Chilli Powder",
-    "desc": "Spicy chutney powder perfect for idli and dosa."
+  "coriander_powder": {
+    "name": "Coriander Powder",
+    "desc": "Fresh ground coriander powder for all curries."
   },
-  "kulambu_chilli_powder": {
-    "name": "Kulambu Chilli Powder",
-    "desc": "Traditional tamarind curry chilli powder."
-  },
-  "red_chilli_powder": {
-    "name": "Red Chilli Powder",
-    "desc": "Pure and vibrant red chilli powder."
-  },
-  "meat_curry_masala": {
-    "name": "Meat Curry Masala",
-    "desc": "Spice mix tailored for rich meat curry flavors."
+  "curry_masala_powder": {
+    "name": "Curry Masala Powder",
+    "desc": "Perfect base for traditional South Indian curries."
   },
   "egg_gravy_masala": {
     "name": "Egg Gravy Masala",
@@ -46,20 +36,30 @@
     "name": "Garam Masala",
     "desc": "Aromatic all-purpose Indian spice blend."
   },
-  "curry_masala_powder": {
-    "name": "Curry Masala Powder",
-    "desc": "Perfect base for traditional South Indian curries."
+  "idli_chilli_powder": {
+    "name": "Idli Chilli Powder",
+    "desc": "Spicy chutney powder perfect for idli and dosa."
+  },
+  "kulambu_chilli_powder": {
+    "name": "Kulambu Chilli Powder",
+    "desc": "Traditional tamarind curry chilli powder."
+  },
+  "meat_curry_masala": {
+    "name": "Meat Curry Masala",
+    "desc": "Spice mix tailored for rich meat curry flavors."
+  },
+  "red_chilli_powder": {
+    "name": "Red Chilli Powder",
+    "desc": "Pure and vibrant red chilli powder."
   },
   "sambar_powder": {
     "name": "Sambar Powder",
     "desc": "Classic spice mix for South Indian sambar."
   },
-  "coriander_powder": {
-    "name": "Coriander Powder",
-    "desc": "Fresh ground coriander powder for all curries."
-  },
   "turmeric_powder": {
     "name": "Turmeric Powder",
     "desc": "Bright and pure haldi powder for everyday cooking."
-  }
+  },
+  "title": "Our Masala Products",
+  "contact": "Contact Us"
 }

@@ -43,6 +43,12 @@
         <a href="tel:+919876543210" class="text-blue-600 underline">📞 +91 9787781569</a>
         <a href="https://wa.me/+91 9787781569" class="text-green-600 underline" target="_blank">💬 WhatsApp Us</a>
       </div>
+      <div class="mt-4 leading-6 text-sm text-gray-800">
+        <p><strong>Aarathana Spices & Masala</strong></p>
+        <p>No. 12, Anna Salai, T. Nagar</p>
+        <p>Chennai - 600017, Tamil Nadu, India</p>
+        <p>📧 info@Aarathanamasala.com</p>
+      </div>
     </footer>
 
     <div class="mt-6 text-center bg-white p-4 rounded shadow inline-block">
@@ -64,6 +70,26 @@
       </p>
     </section>
   </div>
-  <script src="js/main.js"></script>
+</div>
+
+<!-- Floating Cart Button -->
+<div id="floatingCart" onclick="openCart()" class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg cursor-pointer z-50">
+  🛒 <span id="cartCount">0</span>
+</div>
+
+<!-- Cart Drawer -->
+<div id="cartDrawer" class="fixed right-0 top-0 w-full sm:w-96 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+  <div class="p-6">
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-xl font-bold">🛍️ Your Cart</h3>
+      <button onclick="closeCart()" class="text-red-600 font-bold text-xl">×</button>
+    </div>
+    <ul id="cartItems" class="space-y-4"></ul>
+    <button onclick="checkoutWhatsApp()" class="mt-6 w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Checkout on WhatsApp</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/checkout.js"></script>
 </body>
 </html>

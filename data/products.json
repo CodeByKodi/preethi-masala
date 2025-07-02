@@ -1,87 +1,73 @@
 {
   "masala": [
     {
-      "nameKey": "chettinad_chicken_masala.name",
-      "descKey": "chettinad_chicken_masala.desc",
+      "key": "chettinad_chicken_masala",
       "image": "chettinad-chicken-masala-1734760157-7700046.jpeg",
       "sizes": ["100g", "250g", "500g"],
       "video": "https://www.youtube.com/watch?v=abc123xyz"
     },
     {
-      "nameKey": "chicken_65_masala.name",
-      "descKey": "chicken_65_masala.desc",
+      "key": "chicken_65_masala",
       "image": "chicken-65-masala-1734760213-7700047.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "chicken_gravy_masala.name",
-      "descKey": "chicken_gravy_masala.desc",
+      "key": "chicken_gravy_masala",
       "image": "chicken-gravy-masala-1734760261-7700048.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "idli_chilli_powder.name",
-      "descKey": "idli_chilli_powder.desc",
+      "key": "idli_chilli_powder",
       "image": "idli-chilli-powder-1734760766-7751445.jpeg",
       "sizes": ["100g"]
     },
     {
-      "nameKey": "kulambu_chilli_powder.name",
-      "descKey": "kulambu_chilli_powder.desc",
+      "key": "kulambu_chilli_powder",
       "image": "kulambu-chilli-powder-1734761037-7751466.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "red_chilli_powder.name",
-      "descKey": "red_chilli_powder.desc",
+      "key": "red_chilli_powder",
       "image": "red-chilli-powder-1734761085-7751469.jpeg",
       "sizes": ["100g", "500g"]
     },
     {
-      "nameKey": "meat_curry_masala.name",
-      "descKey": "meat_curry_masala.desc",
+      "key": "meat_curry_masala",
       "image": "meat-curry-masala-1734760411-7700049.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "egg_gravy_masala.name",
-      "descKey": "egg_gravy_masala.desc",
+      "key": "egg_gravy_masala",
       "image": "egg-gravy-masala-1734760496-7751421.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "fish_roast_masala.name",
-      "descKey": "fish_roast_masala.desc",
+      "key": "fish_roast_masala",
       "image": "fish-roast-masala-1734760566-7751426.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "garam_masala.name",
-      "descKey": "garam_masala.desc",
+      "key": "garam_masala",
       "image": "garam-masala-1734760644-7751430.jpeg",
       "sizes": ["100g"]
     },
     {
-      "nameKey": "curry_masala_powder.name",
-      "descKey": "curry_masala_powder.desc",
+      "key": "curry_masala_powder",
       "image": "curry-masala-powder-1734761341-7751500.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "sambar_powder.name",
-      "descKey": "sambar_powder.desc",
+      "key": "sambar_powder",
       "image": "sambar-powder-1734761396-7751502.jpeg",
       "sizes": ["100g", "250g", "500g"]
     },
     {
-      "nameKey": "coriander_powder.name",
-      "descKey": "coriander_powder.desc",
+      "key": "coriander_powder",
       "image": "coriander-powder-1734761454-7751508.jpeg",
       "sizes": ["100g", "250g"]
     },
     {
-      "nameKey": "turmeric_powder.name",
-      "descKey": "turmeric_powder.desc",
+      "key": "turmeric_powder",
       "image": "turmeric-powder-1734761497-7751509.jpeg",
       "sizes": ["100g", "250g"]
     }
