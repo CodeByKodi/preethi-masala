@@ -35,11 +35,11 @@ async function loadProducts() {
     data[cat].forEach((item) => {
       catContainer.innerHTML += `
         <div class="bg-white rounded shadow p-4">
-        <img src="images/${item.image}" loading="lazy" class="w-full h-48 object-cover rounded mb-3" alt="${item.name}">
-        <h3 class="font-bold text-lg">${item.name}</h3>
-        <p class="text-sm">${item.desc}</p>
-        <p class="text-xs mt-2">Sizes: ${item.sizes.join(", ")}</p>
-        <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20${encodeURIComponent(item.name)}" target="_blank" class="mt-3 inline-block text-green-600 underline text-sm">💬 Order via WhatsApp</a>
+        <img src="images/${item.image}" loading="lazy" class="w-full h-48 object-cover rounded mb-3" alt="${i18next.t(item.nameKey)}">
+        <h3 class="font-bold text-lg">${i18next.t(item.nameKey)}</h3>
+        <p class="text-sm">${i18next.t(item.descKey)}</p>
+<p class="text-xs mt-2">Sizes: ${item.sizes.join(", ")}</p>
+${item.video ? `<a href="${item.video}" target="_blank" class="text-blue-500 underline text-sm mt-1 inline-block">🎥 Watch Cooking Demo</a>` : ''}
         </div>
       `;
     });
