@@ -33,13 +33,19 @@ async function loadProducts() {
     const catContainer = document.getElementById(cat);
 
     data[cat].forEach((item) => {
+      const sizeOptions = item.sizes.map(size => `<option value="${size}">${size}</option>`).join('');
       catContainer.innerHTML += `
         <div class="bg-white rounded shadow p-4">
-        <img src="images/${item.image}" loading="lazy" class="w-full h-48 object-cover rounded mb-3" alt="${i18next.t(item.nameKey)}">
-        <h3 class="font-bold text-lg">${i18next.t(item.nameKey)}</h3>
-        <p class="text-sm">${i18next.t(item.descKey)}</p>
-<p class="text-xs mt-2">Sizes: ${item.sizes.join(", ")}</p>
-${item.video ? `<a href="${item.video}" target="_blank" class="text-blue-500 underline text-sm mt-1 inline-block">🎥 Watch Cooking Demo</a>` : ''}
+          <img src="images/${item.image}" loading="lazy" class="w-full h-48 object-cover rounded mb-3" alt="${i18next.t(item.key + '.name')}">
+          <h3 class="font-bold text-lg">${i18next.t(item.key + '.name')}</h3>
+          <p class="text-sm">${i18next.t(item.key + '.desc')}</p>
+          <label class="block text-xs mt-2">Select Size:
+            <select class="border rounded p-1 mt-1" id="size-${item.key}">
+              ${sizeOptions}
+            </select>
+          </label>
+          <button onclick="addToCart('${item.key}', document.getElementById('size-${item.key}').value)" class="mt-2 bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700 text-sm">Add to Cart</button>
+          ${item.video ? `<a href="${item.video}" target="_blank" class="text-blue-500 underline text-sm mt-2 block">🎥 Watch Cooking Demo</a>` : ''}
         </div>
       `;
     });
