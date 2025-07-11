@@ -1,75 +1,280 @@
 {
-  "masala": [
+  "products": [
     {
-      "key": "chettinad_chicken_masala",
-      "image": "chettinad-chicken-masala-1734760157-7700046.jpeg",
-      "sizes": ["100g", "250g", "500g"],
-      "video": "https://www.youtube.com/watch?v=abc123xyz"
+      "key": "turmeric_powder",
+      "name": "Turmeric Powder",
+      "sizes": [
+        "50g",
+        "250g",
+        "500g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Turmeric-Powder-2025.png"
     },
     {
-      "key": "chicken_65_masala",
-      "image": "chicken-65-masala-1734760213-7700047.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "chicken_gravy_masala",
-      "image": "chicken-gravy-masala-1734760261-7700048.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "idli_chilli_powder",
-      "image": "idli-chilli-powder-1734760766-7751445.jpeg",
-      "sizes": ["100g"]
-    },
-    {
-      "key": "kulambu_chilli_powder",
-      "image": "kulambu-chilli-powder-1734761037-7751466.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "red_chilli_powder",
-      "image": "red-chilli-powder-1734761085-7751469.jpeg",
-      "sizes": ["100g", "500g"]
-    },
-    {
-      "key": "meat_curry_masala",
-      "image": "meat-curry-masala-1734760411-7700049.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "egg_gravy_masala",
-      "image": "egg-gravy-masala-1734760496-7751421.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "fish_roast_masala",
-      "image": "fish-roast-masala-1734760566-7751426.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "garam_masala",
-      "image": "garam-masala-1734760644-7751430.jpeg",
-      "sizes": ["100g"]
-    },
-    {
-      "key": "curry_masala_powder",
-      "image": "curry-masala-powder-1734761341-7751500.jpeg",
-      "sizes": ["100g", "250g"]
-    },
-    {
-      "key": "sambar_powder",
-      "image": "sambar-powder-1734761396-7751502.jpeg",
-      "sizes": ["100g", "250g", "500g"]
+      "key": "chilly_powder",
+      "name": "Chilly Powder",
+      "sizes": [
+        "50g",
+        "250g",
+        "500g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Chilly-Powder-2025.png"
     },
     {
       "key": "coriander_powder",
-      "image": "coriander-powder-1734761454-7751508.jpeg",
-      "sizes": ["100g", "250g"]
+      "name": "Coriander Powder",
+      "sizes": [
+        "50g",
+        "250g",
+        "500g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Coriander-Powder-2025.png"
     },
     {
-      "key": "turmeric_powder",
-      "image": "turmeric-powder-1734761497-7751509.jpeg",
-      "sizes": ["100g", "250g"]
+      "key": "cumin_powder",
+      "name": "Cumin Powder",
+      "sizes": [
+        "50g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Cumin-Powder-2025.png"
+    },
+    {
+      "key": "pepper_powder",
+      "name": "Pepper Powder",
+      "sizes": [
+        "50g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Pepper-Powder-2025.png"
+    },
+    {
+      "key": "preethi_sambar_powder",
+      "name": "Preethi Sambar Powder",
+      "sizes": [
+        "50g",
+        "200g",
+        "500g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Preethi-Sambar-Powder-2025.png"
+    },
+    {
+      "key": "puliyotharai_rice_powder",
+      "name": "Puliyotharai Rice Powder",
+      "sizes": [
+        "25g",
+        "50g"
+      ],
+      "notes": "50g One Pocket for 1 kg Rice (No add Salt, Chill Powder & Tamarind)",
+      "desc": "50g One Pocket for 1 kg Rice (No add Salt, Chill Powder & Tamarind)",
+      "image": "Puliyotharai-Rice-Powder-2025.png"
+    },
+    {
+      "key": "lemon_rice_powder",
+      "name": "Lemon Rice Powder",
+      "sizes": [
+        "25g",
+        "50g"
+      ],
+      "notes": "50g One Pocket for 1 kg Rice (No add Salt, Chilly Powder & Lemon)",
+      "desc": "50g One Pocket for 1 kg Rice (No add Salt, Chilly Powder & Lemon)",
+      "image": "Lemon-Rice-Powder-2025.png"
+    },
+    {
+      "key": "tomotto_rice_powder",
+      "name": "Tomotto Rice Powder",
+      "sizes": [
+        "25g",
+        "50g"
+      ],
+      "notes": "50g One Pocket for 1 kg Rice (No add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1 kg Rice (No add Salt & Chilly Powder)",
+      "image": "Tomotto-Rice-Powder-2025.png"
+    },
+    {
+      "key": "kulambu_chilly_powder",
+      "name": "Kulambu Chilly Powder",
+      "sizes": [
+        "20g",
+        "50g",
+        "200g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Kulambu-Chilly-Powder-2025.png"
+    },
+    {
+      "key": "iddli_chilly_powder",
+      "name": "Iddli Chilly Powder",
+      "sizes": [
+        "20g",
+        "50g",
+        "200g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Iddli-Chilly-Powder-2025.png"
+    },
+    {
+      "key": "cauliflower_fry_masala",
+      "name": "Cauliflower Fry Masala",
+      "sizes": [
+        "25g",
+        "50g"
+      ],
+      "notes": "As you need quantity (No add Salt & Chilly Powder)",
+      "desc": "As you need quantity (No add Salt & Chilly Powder)",
+      "image": "Cauliflower-Fry-Masala-2025.png"
+    },
+    {
+      "key": "curry_masal_powder",
+      "name": "Curry Masala Powder (Veg Kuruma)",
+      "sizes": [
+        "50g",
+        "200g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Curry-Masal-Powder-(Veg-Kuruma)-2025.png"
+    },
+    {
+      "key": "briyani_mix",
+      "name": "Briyani Mix",
+      "sizes": [
+        "20g",
+        "50g",
+        "200g"
+      ],
+      "notes": "50g One Pocket for 2 kg Rice (Add salt As you Need)",
+      "desc": "50g One Pocket for 2 kg Rice (Add salt As you Need)",
+      "image": "Briyani-Mix-2025.png"
+    },
+    {
+      "key": "chicken_65_mix",
+      "name": "Chicken 65 Mix",
+      "sizes": [
+        "20g",
+        "50g",
+        "200g",
+        "500g"
+      ],
+      "notes": "50g One Pocket for 1/2 kg Chicken ( No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1/2 kg Chicken ( No Add Salt & Chilly Powder)",
+      "image": "Chicken-65-Mix-2025.png"
+    },
+    {
+      "key": "chicken_gravy_masala",
+      "name": "Chicken Gravy Masala",
+      "sizes": [
+        "25g",
+        "50g",
+        "200g",
+        "500g"
+      ],
+      "notes": "50g One Pocket for 1 kg Chicken ( No add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1 kg Chicken ( No add Salt & Chilly Powder)",
+      "image": "Chicken-Gravy-Masal-2025.png"
+    },
+    {
+      "key": "chettinad_chicken_masala",
+      "name": "Chettinad Chicken Masala",
+      "sizes": [
+        "20g",
+        "50g"
+      ],
+      "notes": "50g One Pocket for 1 kg Chicken ( No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1 kg Chicken ( No Add Salt & Chilly Powder)",
+      "image": "Chettinad-Chicken-Masala-2025.png"
+    },
+    {
+      "key": "country_chicken_masal",
+      "name": "Country Chicken Masala",
+      "sizes": [
+        "50g"
+      ],
+      "notes": "50g One Pocket for 600 g Chicken (No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 600 g Chicken (No Add Salt & Chilly Powder)",
+      "image": "Country-Chicken-Masal-2025.png"
+    },
+    {
+      "key": "fish_roast_mix",
+      "name": "Fish Roast Mix",
+      "sizes": [
+        "25g",
+        "50g",
+        "250g",
+        "500g"
+      ],
+      "notes": "50g One Pocket for 1/2 kg Fish (No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1/2 kg Fish (No Add Salt & Chilly Powder)",
+      "image": "Fish-Roast-Mix-2025.png"
+    },
+    {
+      "key": "fish_gravy_masal",
+      "name": "Fish Gravy Masala",
+      "sizes": [
+        "25g",
+        "50g",
+        "200g"
+      ],
+      "notes": "50g One Pocket for 1 kg Fish (No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1 kg Fish (No Add Salt & Chilly Powder)",
+      "image": "Fish-Gravy-Masal-2025.png"
+    },
+    {
+      "key": "egg_gravy_masal",
+      "name": "Egg Gravy Masala",
+      "sizes": [
+        "25g",
+        "50g",
+        "200g"
+      ],
+      "notes": "50g One Pocket for 12 eggs (No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 12 eggs (No Add Salt & Chilly Powder)",
+      "image": "Egg-Gravy-Masal-2025.png"
+    },
+    {
+      "key": "muttan_masala",
+      "name": "Muttan Masala",
+      "sizes": [
+        "25g",
+        "50g",
+        "200g",
+        "500g"
+      ],
+      "notes": "50g One Pocket for 1 kg Muttan ( No Add Salt & Chilly Powder)",
+      "desc": "50g One Pocket for 1 kg Muttan ( No Add Salt & Chilly Powder)",
+      "image": "Muttan-Masala-2025.png"
+    },
+    {
+      "key": "rasam_powder",
+      "name": "Rasam Powder",
+      "sizes": [
+        "50g"
+      ],
+      "notes": "As you need quantity",
+      "desc": "As you need quantity",
+      "image": "Rasam-Powder-2025.png"
+    },
+    {
+      "key": "mushroom_masal",
+      "name": "Mushroom Masala",
+      "sizes": [
+        "20g"
+      ],
+      "notes": "20g One Pocket for 400g Mushroom (No Add Salt & Chilly Powder)",
+      "desc": "20g One Pocket for 400g Mushroom (No Add Salt & Chilly Powder)",
+      "image": "Mushroom-Masal-2025.png"
     }
   ]
 }
