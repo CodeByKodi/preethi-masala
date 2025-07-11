@@ -1,4 +1,3 @@
-# masala-shop
 # 🛒 Preethi Masala Shop
 
 Welcome to the **Preethi Masala Shop**, a multilingual e-commerce frontend for showcasing and selling authentic Indian masala products. Built with simplicity and scalability in mind, this project supports dynamic product listing, internationalization, and category-based filtering.
