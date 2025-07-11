@@ -1,0 +1,118 @@
+
+
+# 🌐 GitHub Pages Custom Domain Setup with GoDaddy
+
+This guide documents how to set up a custom domain (e.g., `www.yourbrand.com`) from GoDaddy with GitHub Pages.
+
+---
+
+## ✅ Step 1: Buy a Domain (GoDaddy)
+
+- Purchase a domain from [GoDaddy](https://www.godaddy.com)
+- Access the domain's **DNS Management** section
+
+---
+
+## ⚙️ Step 2: GitHub Pages Setup
+
+1. In your **GitHub repository**, go to:
+   - `Settings` → `Pages`
+2. Choose a branch (`main`, `gh-pages`, etc.) and folder (`/root` or `/docs`)
+3. Under **Custom Domain**, enter:  
+   ```
+   www.yourbrand.com
+   ```
+4. GitHub will auto-create a `CNAME` file in your repo.
+
+---
+
+## 📝 Step 3: Add `CNAME` File (Optional Manual Setup)
+
+Create a file called `CNAME` at the root of your site folder with the contents:
+```
+www.yourbrand.com
+```
+
+---
+
+## 🌐 Step 4: GoDaddy DNS Configuration
+
+### 🔵 CNAME for www:
+| Type  | Name | Value                    |
+|-------|------|---------------------------|
+| CNAME | www  | yourusername.github.io   |
+
+### 🟢 A Records for root domain:
+| Type | Name | Value             |
+|------|------|-------------------|
+| A    | @    | 185.199.108.153   |
+| A    | @    | 185.199.109.153   |
+| A    | @    | 185.199.110.153   |
+| A    | @    | 185.199.111.153   |
+
+> 🧠 "@" represents your root domain (e.g., `yourbrand.com`)
+
+---
+
+## 🔒 Step 5: Enforce HTTPS
+
+Once DNS has propagated:
+- Go to GitHub → `Settings → Pages`
+- Enable: ✅ Enforce HTTPS
+
+---
+
+## ⚙️ Optional: GitHub Action for Auto Deploy (from Private Repo)
+
+Create this file: `.github/workflows/deploy.yml`
+
+```yaml
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install & Build
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+```
+
+---
+
+## ✅ Final Result
+
+Your GitHub Pages site should now be accessible at:
+```
+https://www.yourbrand.com
+```
+
+---
+
+## 📌 Notes
+
+- Make sure the `CNAME` file is preserved on every deploy
+- DNS propagation may take up to 30 minutes
+- For redirecting root domain to `www`, use GoDaddy's "Forwarding" option
+
+---
