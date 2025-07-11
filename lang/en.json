@@ -1,8 +1,8 @@
 {
   "categories": {
     "masala": "Masala Powders",
-    "readyMix": "Ready Mixes",
-    "wholeSpices": "Whole Spices"
+    "wholeSpices": "Whole Spices",
+    "readyMix": "Ready Mixes"
   },
   "chettinad_chicken_masala": {
     "name": "Chettinad Chicken Masala",
@@ -11,6 +11,10 @@
   "chicken_65_masala": {
     "name": "Chicken 65 Masala",
     "desc": "Crispy and spicy mix for Chicken 65 preparation."
+  },
+  "chicken_gravy_masal": {
+    "name": "Chicken Gravy Masala",
+    "desc": "Rich and flavorful masala for hearty chicken gravies."
   },
   "chicken_gravy_masala": {
     "name": "Chicken Gravy Masala",
@@ -60,6 +64,94 @@
     "name": "Turmeric Powder",
     "desc": "Bright and pure haldi powder for everyday cooking."
   },
+  "chilly_powder": {
+    "name": "Chilli Powder",
+    "desc": "Fiery red chilli powder for spicy Indian dishes."
+  },
+  "cumin_powder": {
+    "name": "Cumin Powder",
+    "desc": "Earthy and fragrant ground cumin for curries and rice."
+  },
+  "pepper_powder": {
+    "name": "Pepper Powder",
+    "desc": "Bold and sharp black pepper powder for seasoning."
+  },
+  "preethi_sambar_powder": {
+    "name": "Preethi Sambar Powder",
+    "desc": "Flavorful blend for authentic sambar preparation."
+  },
+  "puliyotharai_rice_powder": {
+    "name": "Puliyotharai Rice Powder",
+    "desc": "Ready mix for tangy tamarind rice – just add rice!"
+  },
+  "lemon_rice_powder": {
+    "name": "Lemon Rice Powder",
+    "desc": "Zesty blend to make lemon rice instantly."
+  },
+  "tomotto_rice_powder": {
+    "name": "Tomato Rice Powder",
+    "desc": "Savory tomato spice mix for quick tomato rice."
+  },
+  "cauliflower_fry_masala": {
+    "name": "Cauliflower Fry Masala",
+    "desc": "Crisp and flavorful masala for cauliflower fry."
+  },
+  "briyani_mix": {
+    "name": "Biryani Mix",
+    "desc": "Perfect spice mix for a rich biryani experience."
+  },
+  "country_chicken_masal": {
+    "name": "Country Chicken Masala",
+    "desc": "Traditional masala for free-range country chicken."
+  },
+  "fish_gravy_masal": {
+    "name": "Fish Gravy Masala",
+    "desc": "Aromatic spice blend for delicious fish gravy."
+  },
+  "muttan_masala": {
+    "name": "Mutton Masala",
+    "desc": "Hearty masala for mutton gravies and dry dishes."
+  },
+  "rasam_powder": {
+    "name": "Rasam Powder",
+    "desc": "Zesty spice mix for South Indian rasam soup."
+  },
+  "mushroom_masal": {
+    "name": "Mushroom Masala",
+    "desc": "Balanced masala for mushroom-based curries."
+  },
+  "kashmiri_chilly_powder": {
+    "name": "Kashmiri Chilli Powder",
+    "desc": "Mild chilli powder for vibrant color and flavor."
+  },
   "title": "Our Masala Products",
-  "contact": "Contact Us"
+  "contact": "Contact Us",
+  "our_products": "🌶️ Our Products",
+  "download_brochure": "📄 Download our Product Brochure",
+  "about_us_title": "About Us",
+  "about_us_text": "Welcome to Preethi Masala, a family-run business rooted in tradition and flavor. With decades of expertise, we bring you premium quality masalas made with handpicked ingredients and time-tested recipes. Taste the heritage in every sprinkle.",
+  "fish_roast_mix": {
+    "name": "Fish Roast Mix",
+    "desc": "Spicy and flavorful blend for crispy fish roast."
+  },
+  "egg_gravy_masal": {
+    "name": "Egg Gravy Masala",
+    "desc": "Perfect masala for rich and tasty egg gravies."
+  },
+  "curry_masal_powder": {
+    "name": "Curry Masala Powder",
+    "desc": "Aromatic masala powder for traditional Indian curries."
+  },
+  "chicken_65_mix": {
+    "name": "Chicken 65 Mix",
+    "desc": "Crispy, spicy masala mix for Chicken 65 preparation."
+  },
+  "iddli_chilly_powder": {
+    "name": "Idli Chilli Powder",
+    "desc": "Spicy powder perfect for Idli, Dosa, and Pongal."
+  },
+  "kulambu_chilly_powder": {
+    "name": "Kulambu Chilli Powder",
+    "desc": "Flavorful chilli powder for South Indian gravies."
+  }
 }
