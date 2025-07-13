@@ -10,8 +10,8 @@
   <meta property="og:url" content="https://yourdomain.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta name="description" content="Authentic Masala Powders & Spices Direct from YourBrand" />
-  <meta property="og:title" content="YourBrand - Masala & Spices" />
+  <meta name="description" content="Authentic Masala Powders & Spices Direct from Preethi Masala" />
+  <meta property="og:title" content="Preethi Masala - Masala & Spices" />
   <meta property="og:image" content="/images/banner.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Preethi Masala" />
@@ -60,7 +60,7 @@
 
     <section id="productSection" class="mt-8 bg-white p-6 rounded shadow-md">
       <h2 class="text-3xl font-bold mb-6 text-center text-yellow-900" data-i18n="our_products">🌶️ Our Products</h2>
-      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6"></div>
     </section>
 
     <footer class="mt-10 text-center space-y-2 bg-yellow-100 py-6 rounded">
@@ -84,7 +84,7 @@
     <section class="mt-12 bg-white p-6 rounded shadow">
       <h2 class="text-2xl font-bold mb-4 text-center text-yellow-800" data-i18n="about_us_title">About Us</h2>
       <p class="text-gray-700 text-justify leading-relaxed" data-i18n="about_us_text">
-        Welcome to <strong>YourBrand</strong>, a family-run business rooted in tradition and flavor. 
+        Welcome to <strong>Preethi Masala</strong>, a family-run business rooted in tradition and flavor. 
         For generations, we’ve been crafting authentic masala powders and spice blends using time-honored recipes and premium ingredients.
         <br><br>
         Our goal is to bring you the purest taste of Indian cooking—without any artificial additives or preservatives.
@@ -120,11 +120,15 @@
   const savedLang = localStorage.getItem('lang') || 'en';
   langSwitcher.value = savedLang;
   document.getElementById('htmlTag').setAttribute('lang', savedLang);
-  
+
   langSwitcher.addEventListener('change', function (e) {
-    localStorage.setItem('lang', e.target.value);
-    document.getElementById('htmlTag').setAttribute('lang', e.target.value);
-    location.reload(); // to reapply translation
+    const newLang = e.target.value;
+    localStorage.setItem('lang', newLang);
+    document.getElementById('htmlTag').setAttribute('lang', newLang);
+    i18next.changeLanguage(newLang, () => {
+      if (typeof loadProducts === 'function') loadProducts();
+      if (typeof updateI18nText === 'function') updateI18nText();
+    });
   });
 </script>
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
