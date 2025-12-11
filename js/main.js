@@ -161,21 +161,31 @@ async function loadProducts() {
           <h3 class="font-bold text-base mb-1.5 text-gray-800 line-clamp-2">${safeName}</h3>
           <p class="text-xs text-gray-600 mb-3 min-h-[54px] line-clamp-3 leading-relaxed">${safeDesc}</p>
           <label class="block text-xs mt-1.5 font-semibold text-gray-700 mb-1">${escapeHtml(i18next.t('select_size', { defaultValue: 'Select Size' }))}:
-            <select class="border-2 border-yellow-200 rounded-lg px-2 py-1.5 mt-1 w-full bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 shadow-sm hover:shadow-md transition-all text-xs" id="size-${escapeHtml(item.key)}" aria-label="Select size for ${safeName}" onclick="event.stopPropagation()">
+            <select class="border-2 border-yellow-200 rounded-lg px-2 py-1.5 mt-1 w-full bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 shadow-sm hover:shadow-md transition-all text-xs" id="size-${escapeHtml(item.key)}" aria-label="Select size for ${safeName}" onclick="event.stopPropagation()" onchange="if(typeof updateProductCardCartStatus === 'function') updateProductCardCartStatus()">
               ${sizeOptions}
             </select>
           </label>
-          <button 
-            onclick="event.stopPropagation(); addToCart('${escapeHtml(item.key)}', document.getElementById('size-${escapeHtml(item.key)}').value)" 
-            class="add-cart-btn mt-2 w-full gradient-button text-white px-3 py-2 rounded-lg shadow-md hover:shadow-lg text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 flex items-center justify-center gap-1.5 transition-all duration-300 active:scale-95" 
-            aria-label="Add ${safeName} to cart"
-            data-product-key="${escapeHtml(item.key)}"
-          >
-            <svg class="w-5 h-5 add-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-            </svg>
-            <span class="add-text">${escapeHtml(i18next.t('add_to_cart', { defaultValue: 'Add to Cart' }))}</span>
-          </button>
+          <div class="quantity-controls mt-2 flex items-center justify-center gap-2" data-product-key="${escapeHtml(item.key)}">
+            <button 
+              onclick="event.stopPropagation(); decrementProductQty('${escapeHtml(item.key)}', document.getElementById('size-${escapeHtml(item.key)}').value)" 
+              class="qty-btn qty-decrement bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-2 rounded-lg shadow-sm hover:shadow font-bold text-sm transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed" 
+              aria-label="Decrease quantity"
+              style="min-width: 40px;"
+            >
+              −
+            </button>
+            <div class="qty-display bg-white border-2 border-yellow-200 px-4 py-2 rounded-lg text-sm font-semibold text-gray-800 min-w-[60px] text-center" data-qty="0">
+              0
+            </div>
+            <button 
+              onclick="event.stopPropagation(); incrementProductQty('${escapeHtml(item.key)}', document.getElementById('size-${escapeHtml(item.key)}').value)" 
+              class="qty-btn qty-increment gradient-button text-white px-3 py-2 rounded-lg shadow-md hover:shadow-lg font-bold text-sm transition-all duration-200 active:scale-95" 
+              aria-label="Increase quantity"
+              style="min-width: 40px;"
+            >
+              +
+            </button>
+          </div>
           ${item.video ? `<a href="${escapeHtml(item.video)}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline text-sm mt-3 block text-center font-medium" onclick="event.stopPropagation()">🎥 ${escapeHtml(i18next.t('watch_demo', { defaultValue: 'Watch Cooking Demo' }))}</a>` : ''}
         `;
         targetContainer.appendChild(productCard);
