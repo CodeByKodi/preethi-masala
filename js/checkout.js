@@ -336,53 +336,116 @@ function updateProductCardCartStatus() {
     const productKey = card.getAttribute('data-product-key');
     if (!productKey) return;
     
-    // Count total quantity of this product (all sizes)
-    const productItems = cart.filter(item => item.key === productKey);
-    const totalQty = productItems.reduce((sum, item) => sum + (item.qty || 0), 0);
+    // Get the selected size for this product
+    const sizeSelect = card.querySelector(`#size-${productKey}`);
+    const selectedSize = sizeSelect ? sizeSelect.value : null;
     
-    // Find the button and badge elements
-    const button = card.querySelector('.add-cart-btn');
-    const existingBadge = card.querySelector('.cart-badge-product');
+    // Find quantity controls
+    const qtyControls = card.querySelector('.quantity-controls');
+    if (!qtyControls) return;
     
-    if (totalQty > 0) {
-      // Item is in cart - update button and show badge
-      if (button) {
-        const addText = button.querySelector('.add-text');
-        if (addText) {
-          addText.textContent = i18next.t('in_cart', { defaultValue: 'In Cart' });
-        }
-        // Change button style to show it's in cart
-        button.classList.remove('gradient-button');
-        button.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
+    const qtyDisplay = qtyControls.querySelector('.qty-display');
+    const decrementBtn = qtyControls.querySelector('.qty-decrement');
+    const incrementBtn = qtyControls.querySelector('.qty-increment');
+    
+    if (selectedSize) {
+      // Find item with this product key and size
+      const cartItem = cart.find(item => item.key === productKey && item.size === selectedSize);
+      const qty = cartItem ? cartItem.qty : 0;
+      
+      // Update quantity display
+      if (qtyDisplay) {
+        qtyDisplay.textContent = qty;
+        qtyDisplay.setAttribute('data-qty', qty);
       }
       
-      // Add or update badge
-      if (!existingBadge) {
-        const badge = document.createElement('div');
-        badge.className = 'cart-badge-product absolute top-2 right-2 bg-green-600 text-white rounded-full px-2 py-1 text-xs font-bold shadow-lg flex items-center justify-center min-w-[24px] z-10';
-        badge.textContent = totalQty;
-        badge.setAttribute('aria-label', `${totalQty} in cart`);
-        card.appendChild(badge);
-      } else {
-        existingBadge.textContent = totalQty;
-      }
-    } else {
-      // Item not in cart - reset button
-      if (button) {
-        const addText = button.querySelector('.add-text');
-        if (addText) {
-          addText.textContent = i18next.t('add_to_cart', { defaultValue: 'Add to Cart' });
-        }
-        button.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
-        button.classList.add('gradient-button');
+      // Update button states
+      if (decrementBtn) {
+        decrementBtn.disabled = qty === 0;
       }
       
-      // Remove badge
-      if (existingBadge) {
-        existingBadge.remove();
+      // Update display style based on quantity
+      if (qtyDisplay) {
+        if (qty > 0) {
+          qtyDisplay.classList.add('bg-green-50', 'border-green-400', 'text-green-700');
+          qtyDisplay.classList.remove('bg-white', 'border-yellow-200', 'text-gray-800');
+        } else {
+          qtyDisplay.classList.remove('bg-green-50', 'border-green-400', 'text-green-700');
+          qtyDisplay.classList.add('bg-white', 'border-yellow-200', 'text-gray-800');
+        }
       }
     }
+    
+    // Update when size changes
+    if (sizeSelect) {
+      sizeSelect.addEventListener('change', function() {
+        updateProductCardCartStatus();
+      });
+    }
   });
+}
+
+// Increment product quantity from product card
+function incrementProductQty(productKey, size) {
+  const productName = i18next.t(`${productKey}.name`, { defaultValue: productKey });
+  
+  // Add item using cart manager
+  const result = cartManager.addItem(productKey, size, 1);
+  cart = cartManager.getCart();
+  
+  if (!result.success) {
+    if (result.error === 'Cart is full') {
+      showToast(i18next.t('cart_full', { defaultValue: 'Cart is full. Please remove some items.' }), 3000);
+    } else {
+      showToast(i18next.t('add_to_cart_error', { defaultValue: 'Failed to add item to cart' }), 2000);
+    }
+    return;
+  }
+  
+  updateCartCount();
+  animateCartButton();
+  
+  // Show toast
+  if (result.warning) {
+    showToast(`${productName} (${size}) - ${i18next.t('max_quantity_reached', { defaultValue: 'Maximum quantity reached' })}`, 2000);
+  } else {
+    const cartItem = cart.find(item => item.key === productKey && item.size === size);
+    showToast(`${productName} (${size}) - ${i18next.t('quantity_increased', { defaultValue: 'Quantity' })}: ${cartItem.qty}`, 2000);
+  }
+}
+
+// Decrement product quantity from product card
+function decrementProductQty(productKey, size) {
+  const productName = i18next.t(`${productKey}.name`, { defaultValue: productKey });
+  
+  // Find the item in cart
+  const cartItemIndex = cart.findIndex(item => item.key === productKey && item.size === size);
+  
+  if (cartItemIndex === -1) {
+    return; // Item not in cart
+  }
+  
+  const cartItem = cart[cartItemIndex];
+  
+  if (cartItem.qty > 1) {
+    // Decrement quantity
+    const result = cartManager.updateQuantity(cartItemIndex, cartItem.qty - 1);
+    cart = cartManager.getCart();
+    
+    if (result.success) {
+      updateCartCount();
+      showToast(`${productName} (${size}) - ${i18next.t('quantity_increased', { defaultValue: 'Quantity' })}: ${cartItem.qty - 1}`, 1500);
+    }
+  } else {
+    // Remove item when quantity reaches 0
+    const result = cartManager.removeItem(cartItemIndex);
+    cart = cartManager.getCart();
+    
+    if (result.success) {
+      updateCartCount();
+      showToast(`${productName} ${i18next.t('item_removed', { defaultValue: 'removed from cart' })}`, 2000);
+    }
+  }
 }
 
 function openCart() {
