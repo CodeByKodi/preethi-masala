@@ -3,22 +3,268 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title data-i18n="title">Masala Shop</title>
+  <title data-i18n="title">Preethi Masala - Authentic Indian Spices</title>
   <meta name="keywords" content="masala powders, spices, Indian masalas, organic spices, Preethi masala, Theni spices">
   <link rel="canonical" href="https://yourdomain.github.io/">
   <meta property="og:description" content="Freshly ground masala powders from a family-run business with tradition in every spoon." />
   <meta property="og:url" content="https://yourdomain.github.io/" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="images/favicon.png">
-  <meta name="description" content="Authentic Masala Powders & Spices Direct from Preethi Masala" />
-  <meta property="og:title" content="Preethi Masala - Masala & Spices" />
-  <meta property="og:image" content="/images/banner.png" />
+  <meta name="description" content="Authentic Masala Powders & Spices Direct from Preethi Masala - ISO 9001-2000 Certified. Premium quality spices from Theni, Tamil Nadu. Order via WhatsApp." />
+  <meta property="og:title" content="Preethi Masala - Authentic Indian Spices & Masala Powders" />
+  <meta property="og:image" content="images/banner.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Preethi Masala" />
-  <meta property="og:image:alt" content="Authentic Masala Banner" />
+  <meta property="og:image:alt" content="Preethi Masala - Authentic Indian Spices" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Preethi Masala" />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://unpkg.com" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/i18next@21.6.16/i18next.min.js"></script>
   <script src="https://unpkg.com/i18next-http-backend@1.4.4/i18nextHttpBackend.min.js"></script>
+  <style>
+    /* Custom animations and enhancements */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    .product-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+    
+    .product-card:hover::before {
+      left: 100%;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .product-image {
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .product-image {
+      transform: scale(1.05);
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    }
+    
+    .gradient-button {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .gradient-button:hover {
+      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+    }
+    
+    .search-container {
+      position: relative;
+    }
+    
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6b7280;
+    }
+    
+    .header-gradient {
+      background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #ffffff 100%);
+      border-bottom: 2px solid #fde68a;
+    }
+    
+    .footer-gradient {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    }
+    
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+      color: white;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+    
+    .cart-badge.bounce {
+      animation: bounceIn 0.5s ease-out;
+    }
+    
+    @keyframes bounceIn {
+      0% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .add-button-success {
+      animation: buttonSuccess 0.6s ease-out;
+    }
+    
+    @keyframes buttonSuccess {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(0.95);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    /* Cart item removal animation */
+    .cart-item-removing {
+      animation: slideOut 0.3s ease-out forwards;
+      opacity: 0;
+    }
+    
+    @keyframes slideOut {
+      0% {
+        opacity: 1;
+        transform: translateX(0);
+        max-height: 200px;
+        margin-bottom: 12px;
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(100%);
+        max-height: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+    
+    .smooth-transition {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-glow {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+    
+    .card-glow:hover {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(251, 191, 36, 0.1);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .product-card,
+      .product-image,
+      .gradient-button {
+        transition: none;
+      }
+    }
+    
+    /* Image lightbox/zoom */
+    .image-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      cursor: zoom-out;
+    }
+    
+    .image-lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .image-lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    
+    .product-image {
+      cursor: zoom-in;
+    }
+    
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+    
+    .focus\:not-sr-only:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      padding: inherit;
+      margin: inherit;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,97 +285,589 @@
   </script>
 </head>
 <body class="bg-yellow-50 text-gray-800 font-sans">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-yellow-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg">
+    Skip to main content
+  </a>
+  
   <noscript>
     <div class="bg-red-100 text-red-800 p-4 text-center">
       ⚠️ JavaScript is required to view this site properly. Please enable JavaScript in your browser.
     </div>
   </noscript>
-  <div class="max-w-5xl mx-auto p-6 px-4">
-    <img src="images/banner.png" alt="Banner" class="w-full rounded-lg mb-6 shadow-lg object-cover max-h-[300px]" loading="lazy">
-    <header class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
-      <div class="flex items-center space-x-4">
-        <img src="images/logo.png" alt="Logo" class="h-12 w-auto">
-        <h1 class="text-2xl font-bold" data-i18n="title">Our Masala Products</h1>
+  <div id="main-content" class="w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Banner Section - Commented out for space optimization. Uncomment to re-enable -->
+    <!--
+    <div class="mb-4 overflow-hidden rounded-xl shadow-lg -mx-4 sm:-mx-6 lg:-mx-8">
+      <img src="images/banner.png" alt="Banner" class="w-full object-cover max-h-[180px] sm:max-h-[220px] fade-in-up" loading="lazy">
+    </div>
+    -->
+    <header class="header-gradient rounded-lg p-3 sm:p-4 mb-6 shadow-md fade-in-up">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div class="flex items-center space-x-3">
+          <div class="bg-white rounded-full p-1.5 shadow-md">
+            <img src="images/logo.png" alt="Logo" class="h-8 sm:h-10 w-auto">
+          </div>
+          <div>
+            <h1 class="text-xl sm:text-2xl font-bold bg-gradient-to-r from-yellow-800 to-yellow-600 bg-clip-text text-transparent" data-i18n="title">Our Masala Products</h1>
+            <p class="text-xs text-gray-600 mt-0.5">Authentic Spices • Premium Quality</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="darkModeToggle" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-white border-2 border-yellow-300 hover:bg-yellow-50 transition-all shadow-md" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg id="darkModeIcon" class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <select id="langSwitcher" aria-label="Select Language" class="border-2 border-yellow-300 rounded-lg px-4 py-2 bg-white text-gray-800 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 transition-all cursor-pointer font-medium">
+            <option value="en">🇬🇧 English</option>
+            <option value="ta">🇮🇳 தமிழ்</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+          </select>
+        </div>
       </div>
-      <select id="langSwitcher" aria-label="Select Language" class="border border-gray-300 rounded px-3 py-2 bg-white text-gray-800 shadow-sm focus:outline-none">
-        <option value="en">🇬🇧 English</option>
-        <option value="ta">🇮🇳 தமிழ்</option>
-        <option value="hi">🇮🇳 हिन्दी</option>
-      </select>
     </header>
 
-    <section id="productSection" class="mt-8 bg-white p-6 rounded shadow-md">
-      <h2 class="text-3xl font-bold mb-6 text-center text-yellow-900" data-i18n="our_products">🌶️ Our Products</h2>
-      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6"></div>
+    <section id="productSection" class="mt-6 bg-gradient-to-br from-white to-yellow-50 p-4 sm:p-6 rounded-xl shadow-lg border border-yellow-100 fade-in-up">
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-center sm:text-left bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 bg-clip-text text-transparent" data-i18n="our_products">
+            <span class="text-4xl">🌶️</span> Our Products
+          </h2>
+          <p class="text-sm text-gray-600 mt-2 text-center sm:text-left">Discover our authentic spice collection</p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <div class="search-container relative">
+            <svg class="search-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input 
+              type="text" 
+              id="productSearch" 
+              data-i18n-placeholder="search_products"
+              placeholder="Search products..." 
+              class="w-full sm:w-72 border-2 border-yellow-200 rounded-xl pl-10 pr-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 shadow-md hover:shadow-lg transition-all"
+              aria-label="Search products"
+            />
+          </div>
+          <select id="sortProducts" class="border-2 border-yellow-200 rounded-xl px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 shadow-md hover:shadow-lg transition-all cursor-pointer" aria-label="Sort products">
+            <option value="default" data-i18n="sort_default">Sort by</option>
+            <option value="name-asc" data-i18n="sort_name_asc">Name (A-Z)</option>
+            <option value="name-desc" data-i18n="sort_name_desc">Name (Z-A)</option>
+          </select>
+        </div>
+      </div>
+      
+      <!-- Category Filter Tabs -->
+      <div class="mb-4 flex flex-wrap justify-center gap-2">
+        <button class="category-filter-btn active px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white" data-category="all" data-i18n="filter_all">
+          All Products
+        </button>
+        <button class="category-filter-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 bg-white text-yellow-700 border-2 border-yellow-300 hover:bg-yellow-50" data-category="masala" data-i18n="filter_masala">
+          Masala Powders
+        </button>
+        <button class="category-filter-btn px-6 py-2 rounded-full font-semibold transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1 bg-white text-yellow-700 border-2 border-yellow-300 hover:bg-yellow-50" data-category="readyMix" data-i18n="filter_ready_mix">
+          Ready Mixes
+        </button>
+      </div>
+      <div id="loadingIndicator" class="text-center py-12 hidden">
+        <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-yellow-200 border-t-yellow-600"></div>
+        <p class="mt-4 text-gray-600 font-medium" data-i18n="loading_products">Loading products...</p>
+      </div>
+      <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4"></div>
+      <div id="noProducts" class="text-center py-12 hidden">
+        <div class="text-6xl mb-4">🔍</div>
+        <p class="text-gray-500 text-lg font-medium" data-i18n="no_products_found">No products found. Try a different search.</p>
+      </div>
     </section>
 
-    <footer class="mt-10 text-center space-y-2 bg-yellow-100 py-6 rounded">
-      <p data-i18n="contact">Contact Us</p>
-      <div class="mt-4 leading-6 text-sm text-gray-800">
-        <p><strong>MFRS. by : VELLS COTTAGE WORKS</strong></p>
-        <p>26, SIDCO Industrial Estate, Madurai Road,</p>
-        <p>THENI - 625 531.</p>
-        <p>PH: 04546 - 251689 Mob.: 63693 57434</p>
-        <p>📧 preethimasala@gmail.com</p>
-        <p class="mt-2 italic text-green-700 font-medium">AN ISO 9001-2000 CERTIFIED COMPANY</p>
-      </div>
-    </footer>
+    <!-- Recently Viewed Products -->
+    <section id="recentlyViewedProducts" class="mt-6 bg-gradient-to-br from-white to-yellow-50 p-4 sm:p-6 rounded-xl shadow-lg border border-yellow-100 fade-in-up" style="display: none;">
+      <!-- Content will be dynamically generated -->
+    </section>
 
-    <div class="mt-6 text-center bg-white p-4 rounded shadow inline-block">
-      <a href="assets/Preethi_Catalog.pdf" class="text-red-600 underline font-medium" download data-i18n="download_brochure">
-        📄 Preethi Masala Catalog - Download
+    <!-- Testimonials Section -->
+    <section class="mt-8 bg-gradient-to-br from-yellow-50 to-white p-4 sm:p-6 rounded-xl shadow-lg border border-yellow-100 fade-in-up">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r from-yellow-800 to-yellow-600 bg-clip-text text-transparent" data-i18n="testimonials_title">What Our Customers Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto">
+        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-yellow-100">
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-sm">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-700 mb-2 text-sm italic leading-relaxed" data-i18n="testimonial_1_text">"The best masala powders I've ever used! Authentic taste and excellent quality. Highly recommended!"</p>
+          <p class="text-yellow-700 font-semibold text-xs" data-i18n="testimonial_1_author">- Ramesh K., Chennai</p>
+        </div>
+        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-yellow-100">
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-sm">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-700 mb-2 text-sm italic leading-relaxed" data-i18n="testimonial_2_text">"Preethi Masala brings back the traditional flavors of my grandmother's cooking. Truly authentic!"</p>
+          <p class="text-yellow-700 font-semibold text-xs" data-i18n="testimonial_2_author">- Priya S., Bangalore</p>
+        </div>
+        <div class="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-yellow-100">
+          <div class="flex items-center mb-2">
+            <div class="flex text-yellow-400 text-sm">
+              ★★★★★
+            </div>
+          </div>
+          <p class="text-gray-700 mb-2 text-sm italic leading-relaxed" data-i18n="testimonial_3_text">"Fresh, aromatic, and perfectly ground. The sambar powder is a family favorite now!"</p>
+          <p class="text-yellow-700 font-semibold text-xs" data-i18n="testimonial_3_author">- Lakshmi M., Madurai</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mt-8 bg-gradient-to-br from-white to-yellow-50 p-4 sm:p-6 rounded-xl shadow-lg border border-yellow-100 fade-in-up">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-center bg-gradient-to-r from-yellow-800 to-yellow-600 bg-clip-text text-transparent" data-i18n="faq_title">Frequently Asked Questions</h2>
+      <div class="max-w-3xl mx-auto space-y-3">
+        <div class="faq-item bg-white rounded-lg border border-yellow-200 overflow-hidden">
+          <button class="faq-question w-full text-left px-4 py-3 font-semibold text-gray-800 hover:bg-yellow-50 transition-all flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span data-i18n="faq_q1">How do I place an order?</span>
+            <svg class="faq-icon w-5 h-5 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-4 pb-3 text-gray-600">
+            <p data-i18n="faq_a1">You can add products to your cart and checkout via WhatsApp. Click the "Checkout on WhatsApp" button in your cart to send your order directly to us.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-lg border border-yellow-200 overflow-hidden">
+          <button class="faq-question w-full text-left px-4 py-3 font-semibold text-gray-800 hover:bg-yellow-50 transition-all flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span data-i18n="faq_q2">What sizes are available?</span>
+            <svg class="faq-icon w-5 h-5 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-4 pb-3 text-gray-600">
+            <p data-i18n="faq_a2">Each product is available in multiple sizes (typically 15g, 50g, 250g, 500g). Select your preferred size from the dropdown on each product card.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-lg border border-yellow-200 overflow-hidden">
+          <button class="faq-question w-full text-left px-4 py-3 font-semibold text-gray-800 hover:bg-yellow-50 transition-all flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span data-i18n="faq_q3">Do you ship outside Tamil Nadu?</span>
+            <svg class="faq-icon w-5 h-5 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-4 pb-3 text-gray-600">
+            <p data-i18n="faq_a3">Yes, we ship across India. Please contact us via WhatsApp or email to discuss shipping options and charges for your location.</p>
+          </div>
+        </div>
+        <div class="faq-item bg-white rounded-lg border border-yellow-200 overflow-hidden">
+          <button class="faq-question w-full text-left px-4 py-3 font-semibold text-gray-800 hover:bg-yellow-50 transition-all flex justify-between items-center" onclick="toggleFAQ(this)">
+            <span data-i18n="faq_q4">Are your products preservative-free?</span>
+            <svg class="faq-icon w-5 h-5 text-yellow-600 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="faq-answer hidden px-4 pb-3 text-gray-600">
+            <p data-i18n="faq_a4">Yes, all our masala powders are made with natural ingredients and contain no artificial preservatives or additives. We use traditional methods to ensure freshness and quality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-8 bg-gradient-to-br from-white to-yellow-50 p-4 sm:p-6 rounded-xl shadow-lg border border-yellow-100 fade-in-up">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r from-yellow-800 to-yellow-600 bg-clip-text text-transparent" data-i18n="about_us_title">About Us</h2>
+      <div class="max-w-5xl mx-auto">
+        <p class="text-gray-700 text-justify leading-relaxed text-lg" data-i18n="about_us_text">
+          Welcome to <strong class="text-yellow-800">Preethi Masala</strong>, a family-run business rooted in tradition and flavor. 
+          For generations, we've been crafting authentic masala powders and spice blends using time-honored recipes and premium ingredients.
+          <br><br>
+          Our goal is to bring you the purest taste of Indian cooking—without any artificial additives or preservatives.
+          From our kitchen to yours, every packet is made with love, care, and a deep passion for spices.
+          <br><br>
+          <em class="text-yellow-700 font-semibold">Taste the tradition in every spoon!</em>
+        </p>
+      </div>
+    </section>
+
+    <div class="mt-6 text-center fade-in-up">
+      <a href="assets/Preethi_Catalog.pdf" class="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-700 text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold" download data-i18n="download_brochure">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        Preethi Masala Catalog - Download
       </a>
     </div>
 
-    <section class="mt-12 bg-white p-6 rounded shadow">
-      <h2 class="text-2xl font-bold mb-4 text-center text-yellow-800" data-i18n="about_us_title">About Us</h2>
-      <p class="text-gray-700 text-justify leading-relaxed" data-i18n="about_us_text">
-        Welcome to <strong>Preethi Masala</strong>, a family-run business rooted in tradition and flavor. 
-        For generations, we’ve been crafting authentic masala powders and spice blends using time-honored recipes and premium ingredients.
-        <br><br>
-        Our goal is to bring you the purest taste of Indian cooking—without any artificial additives or preservatives.
-        From our kitchen to yours, every packet is made with love, care, and a deep passion for spices.
-        <br><br>
-        <em>Taste the tradition in every spoon!</em>
-      </p>
-    </section>
+    <footer class="mt-6 footer-gradient text-center space-y-4 py-6 px-4 rounded-xl shadow-lg border border-yellow-200 fade-in-up">
+      <h3 class="text-2xl font-bold text-yellow-900 mb-2" data-i18n="contact">Contact Us</h3>
+      <p class="text-base font-semibold text-yellow-900 mb-4">Manufactured by: VELLS COTTAGE WORKS</p>
+      
+      <!-- Contact Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-w-7xl mx-auto mb-4">
+        <!-- Address Card -->
+        <a href="https://maps.google.com/?q=26+SIDCO+Industrial+Estate+Madurai+Road+THENI+625531" target="_blank" rel="noopener noreferrer" class="contact-card bg-white/90 hover:bg-white rounded-lg p-4 shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-yellow-200 group">
+          <div class="flex flex-col items-center text-center space-y-3">
+            <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <h4 class="font-bold text-yellow-900 text-lg" data-i18n="visit_us">Visit Us</h4>
+            <p class="text-gray-700 text-sm leading-relaxed">
+              26, SIDCO Industrial Estate,<br>Madurai Road, THENI - 625 531
+            </p>
+            <span class="text-yellow-600 text-xs font-medium group-hover:text-yellow-700" data-i18n="view_on_map">View on Map →</span>
+          </div>
+        </a>
+
+        <!-- Phone Card -->
+        <div class="contact-card bg-white/90 hover:bg-white rounded-lg p-4 shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-yellow-200 group">
+          <div class="flex flex-col items-center text-center space-y-3">
+            <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+              </svg>
+            </div>
+            <h4 class="font-bold text-yellow-900 text-lg" data-i18n="call_us">Call Us</h4>
+            <div class="space-y-2">
+              <a href="tel:+914546251689" class="block text-gray-700 hover:text-green-600 font-medium transition-colors">
+                📞 04546 - 251689
+              </a>
+              <a href="tel:+916369357434" class="block text-gray-700 hover:text-green-600 font-medium transition-colors">
+                📱 63693 57434
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Card -->
+        <a href="mailto:preethimasala@gmail.com?subject=Inquiry%20from%20Website&body=Hello,%20I%20would%20like%20to%20know%20more%20about%20your%20products." class="contact-card bg-white/90 hover:bg-white rounded-lg p-4 shadow-md hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 border border-yellow-200 group">
+          <div class="flex flex-col items-center text-center space-y-3">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h4 class="font-bold text-yellow-900 text-lg" data-i18n="email_us">Email Us</h4>
+            <p class="text-gray-700 text-sm break-all">preethimasala@gmail.com</p>
+            <span class="text-blue-600 text-xs font-medium group-hover:text-blue-700" data-i18n="send_email">Send Email →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- WhatsApp Quick Contact Button -->
+      <div class="max-w-md mx-auto mb-4">
+        <a href="https://wa.me/916369357434?text=Hello,%20I%20would%20like%20to%20know%20more%20about%20Preethi%20Masala%20products." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 font-semibold text-lg w-full">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.77.966-.94 1.164-.17.199-.34.223-.63.075-.29-.15-1.223-.45-2.331-1.433-.862-.769-1.445-1.719-1.614-2.009-.17-.29-.018-.448.128-.592.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span data-i18n="contact_whatsapp">Contact us on WhatsApp</span>
+        </a>
+      </div>
+
+      <!-- ISO Certification Badge -->
+      <div class="mt-6">
+        <p class="inline-block px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl font-semibold shadow-lg">
+          ✓ <span data-i18n="iso_certified">AN ISO 9001-2000 CERTIFIED COMPANY</span>
+        </p>
+      </div>
+    </footer>
+  </div>
+
+<!-- Toast Notification -->
+<div id="toast" class="fixed bottom-20 right-6 bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-4 rounded-xl shadow-2xl z-50 hidden transform translate-y-20 opacity-0 transition-all duration-300" role="alert" aria-live="polite" style="min-width: 280px; max-width: 400px;"></div>
+
+<!-- Product Detail Modal -->
+<div id="productDetailModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4" onclick="closeProductModal(event)">
+  <div class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+    <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+      <h3 class="text-2xl font-bold text-yellow-900" id="modalProductName">Product Details</h3>
+      <button onclick="closeProductModal()" class="text-gray-500 hover:text-gray-700 text-3xl leading-none" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="flex items-center justify-center bg-gradient-to-br from-yellow-50 to-white rounded-xl p-6">
+          <img id="modalProductImage" src="" alt="" class="max-w-full h-auto rounded-lg shadow-lg product-image">
+        </div>
+        <div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-2" id="modalProductTitle"></h4>
+          <p class="text-gray-600 mb-4" id="modalProductDesc"></p>
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-2" data-i18n="select_size">Select Size</label>
+            <select id="modalProductSize" class="w-full border-2 border-yellow-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></select>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="addToCartFromModal()" class="flex-1 gradient-button text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl font-semibold text-lg flex items-center justify-center gap-2" data-i18n="add_to_cart">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+              Add to Cart
+            </button>
+            <button onclick="shareProduct()" class="px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl shadow-lg hover:shadow-xl font-semibold transition-all flex items-center justify-center" title="Share Product" aria-label="Share Product">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.885 12.938 9 12.482 9 12c0-.482-.115-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
+<!-- Image Lightbox -->
+<div id="imageLightbox" class="image-lightbox" onclick="closeLightbox()">
+  <img id="lightboxImage" src="" alt="Product image">
+</div>
+
+<!-- Scroll to Top Button -->
+<button 
+  id="scrollToTop" 
+  onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+  class="fixed bottom-24 right-6 bg-yellow-600 text-white p-3 rounded-full shadow-lg z-50 hidden hover:bg-yellow-700 transition-all duration-300"
+  aria-label="Scroll to top"
+  title="Scroll to top"
+>
+  ↑
+</button>
+
 <!-- Floating Cart Button -->
-<div id="floatingCart" onclick="openCart()" aria-label="View Cart" title="View Cart" role="button" tabindex="0" class="fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg cursor-pointer z-50">
-  🛒 <span id="cartCount">0</span>
+<div id="floatingCart" onclick="openCart()" aria-label="View Cart" title="View Cart" role="button" tabindex="0" class="fixed bottom-6 right-6 gradient-button text-white p-4 rounded-full shadow-2xl cursor-pointer z-50 hover:scale-110 transition-transform duration-300 group">
+  <div class="relative">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+    </svg>
+    <span id="cartCount" class="cart-badge">0</span>
+  </div>
 </div>
 
 <!-- Cart Drawer -->
-<div id="cartDrawer" class="fixed right-0 top-0 w-full sm:w-96 h-full bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
-  <div class="p-6">
-    <div class="flex justify-between items-center mb-4">
-      <h3 class="text-xl font-bold">🛍️ Your Cart</h3>
-      <button onclick="closeCart()" class="text-red-600 font-bold text-xl">×</button>
+<div id="cartDrawer" class="fixed right-0 top-0 w-full sm:w-96 h-full bg-gradient-to-br from-white to-yellow-50 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out border-l border-yellow-200">
+  <div class="p-6 h-full flex flex-col">
+    <div class="flex justify-between items-center mb-6 pb-4 border-b-2 border-yellow-200">
+      <div class="flex items-center gap-2">
+        <svg class="w-6 h-6 text-yellow-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+        </svg>
+        <h3 class="text-2xl font-bold text-yellow-900" data-i18n="your_cart">Your Cart</h3>
+      </div>
+      <button onclick="closeCart()" class="text-gray-500 hover:text-red-600 font-bold text-2xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-red-50 transition-all" aria-label="Close Cart">×</button>
     </div>
-    <ul id="cartItems" class="space-y-4"></ul>
-    <button onclick="checkoutWhatsApp()" class="mt-6 w-full bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Checkout on WhatsApp</button>
+    <ul id="cartItems" class="space-y-3 flex-1 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-yellow-300 scrollbar-track-yellow-100"></ul>
+    <div class="mt-4 pt-4 border-t-2 border-yellow-200 space-y-2">
+      <button onclick="checkoutWhatsApp()" class="w-full gradient-button text-white px-6 py-3 rounded-xl shadow-lg hover:shadow-xl font-semibold text-lg flex items-center justify-center gap-2" data-i18n="checkout_whatsapp">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.77.966-.94 1.164-.17.199-.34.223-.63.075-.29-.15-1.223-.45-2.331-1.433-.862-.769-1.445-1.719-1.614-2.009-.17-.29-.018-.448.128-.592.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+        Checkout on WhatsApp
+      </button>
+      <div class="flex gap-2">
+        <button onclick="printCart()" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2" data-i18n="print_cart" title="Print Cart">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path>
+          </svg>
+          Print
+        </button>
+        <button onclick="shareCart()" class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-800 px-4 py-2 rounded-lg font-medium transition-colors flex items-center justify-center gap-2" data-i18n="share_cart" title="Share Cart">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.885 12.938 9 12.482 9 12c0-.482-.115-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+          </svg>
+          Share
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
 <script src="js/main.js"></script>
 <script src="js/checkout.js"></script>
 <script>
-  const langSwitcher = document.getElementById('langSwitcher');
-  const savedLang = localStorage.getItem('lang') || 'en';
-  langSwitcher.value = savedLang;
-  document.getElementById('htmlTag').setAttribute('lang', savedLang);
-
-  langSwitcher.addEventListener('change', function (e) {
-    const newLang = e.target.value;
-    localStorage.setItem('lang', newLang);
-    document.getElementById('htmlTag').setAttribute('lang', newLang);
-    i18next.changeLanguage(newLang, () => {
-      if (typeof loadProducts === 'function') loadProducts();
-      if (typeof updateI18nText === 'function') updateI18nText();
-    });
+  // Wait for DOM and i18next to be ready
+  document.addEventListener('DOMContentLoaded', function() {
+    const langSwitcher = document.getElementById('langSwitcher');
+    if (langSwitcher) {
+      const savedLang = localStorage.getItem('lang') || 'en';
+      langSwitcher.value = savedLang;
+      document.getElementById('htmlTag').setAttribute('lang', savedLang);
+    }
   });
+  
+  // Also set it immediately if DOM is already loaded
+  const langSwitcher = document.getElementById('langSwitcher');
+  if (langSwitcher) {
+    const savedLang = localStorage.getItem('lang') || 'en';
+    langSwitcher.value = savedLang;
+    document.getElementById('htmlTag').setAttribute('lang', savedLang);
+  }
+
+  // Set up language switcher event listener
+  (function setupLangSwitcher() {
+    const langSwitcher = document.getElementById('langSwitcher');
+    if (!langSwitcher) {
+      // Retry if element not ready yet
+      setTimeout(setupLangSwitcher, 100);
+      return;
+    }
+    
+    langSwitcher.addEventListener('change', function (e) {
+      const newLang = e.target.value;
+      localStorage.setItem('lang', newLang);
+      document.getElementById('htmlTag').setAttribute('lang', newLang);
+      
+      // Change language and wait for it to complete
+      i18next.changeLanguage(newLang).then(function(t) {
+        // Update all i18n text elements
+        if (typeof updateI18nText === 'function') {
+          updateI18nText();
+        }
+        // Reload products with new language
+        if (typeof loadProducts === 'function') {
+          loadProducts();
+        }
+        // Update cart items with new language
+        if (typeof renderCartItems === 'function') {
+          renderCartItems();
+        }
+      }).catch(function(err) {
+        console.error('Language change error:', err);
+        // Fallback: still try to update
+        if (typeof updateI18nText === 'function') updateI18nText();
+        if (typeof loadProducts === 'function') loadProducts();
+      });
+    });
+  })();
+
+  // Scroll to top button visibility
+  window.addEventListener('scroll', function() {
+    const scrollBtn = document.getElementById('scrollToTop');
+    if (window.pageYOffset > 300) {
+      scrollBtn.classList.remove('hidden');
+    } else {
+      scrollBtn.classList.add('hidden');
+    }
+  });
+
+  // Product search functionality
+  const searchInput = document.getElementById('productSearch');
+  if (searchInput) {
+    let searchTimeout;
+    searchInput.addEventListener('input', function(e) {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        if (typeof filterProducts === 'function') {
+          filterProducts(e.target.value);
+        }
+      }, 300);
+    });
+  }
+
+  // Category filter buttons (with retry for DOM ready)
+  (function setupCategoryFilters() {
+    const categoryButtons = document.querySelectorAll('.category-filter-btn');
+    if (categoryButtons.length === 0) {
+      setTimeout(setupCategoryFilters, 100);
+      return;
+    }
+    categoryButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const category = this.getAttribute('data-category');
+        if (typeof filterByCategory === 'function') {
+          filterByCategory(category);
+        }
+      });
+    });
+  })();
+
+  // Sort dropdown
+  const sortSelect = document.getElementById('sortProducts');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', function(e) {
+      if (typeof sortProducts === 'function') {
+        sortProducts(e.target.value);
+      }
+    });
+  }
+
+  // Initialize dark mode
+  (function initDarkMode() {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    if (isDark) {
+      document.body.classList.add('dark-mode');
+      const icon = document.getElementById('darkModeIcon');
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+      }
+    }
+  })();
+
+  // Initialize recently viewed
+  if (typeof renderRecentlyViewed === 'function') {
+    renderRecentlyViewed();
+  }
+
+  // Image lightbox functionality
+  function openLightbox(imageSrc, imageAlt) {
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    if (lightbox && lightboxImage) {
+      lightboxImage.src = imageSrc;
+      lightboxImage.alt = imageAlt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById('imageLightbox');
+    if (lightbox) {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  // Dark Mode Toggle Function
+  function toggleDarkMode() {
+    const body = document.body;
+    const isDark = body.classList.contains('dark-mode');
+    const icon = document.getElementById('darkModeIcon');
+    
+    if (isDark) {
+      body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'false');
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>';
+      }
+    } else {
+      body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+      if (icon) {
+        icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>';
+      }
+    }
+  }
+
+  // FAQ Toggle Function
+  function toggleFAQ(button) {
+    const item = button.closest('.faq-item');
+    const answer = item.querySelector('.faq-answer');
+    const icon = button.querySelector('.faq-icon');
+    const isOpen = !answer.classList.contains('hidden');
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-item').forEach(faq => {
+      if (faq !== item) {
+        faq.querySelector('.faq-answer').classList.add('hidden');
+        faq.querySelector('.faq-icon').classList.remove('rotate-180');
+      }
+    });
+    
+    // Toggle current FAQ
+    if (isOpen) {
+      answer.classList.add('hidden');
+      icon.classList.remove('rotate-180');
+    } else {
+      answer.classList.remove('hidden');
+      icon.classList.add('rotate-180');
+    }
+  }
 </script>
 <script async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif" alt=""></noscript>

@@ -90,7 +90,7 @@
   },
   "tomotto_rice_powder": {
     "name": "Tomato Rice Powder",
-    "desc": "Savory tomato spice mix for quick tomato rice."
+    "desc": "Savory tomato spice mix for quick tomato rice. 50g one packet for 1 kg rice (Do not add salt or chilli powder)."
   },
   "cauliflower_fry_masala": {
     "name": "Cauliflower Fry Masala",
@@ -98,7 +98,7 @@
   },
   "briyani_mix": {
     "name": "Biryani Mix",
-    "desc": "Perfect spice mix for a rich biryani experience."
+    "desc": "Perfect spice mix for a rich biryani experience. 50g one packet for 2 kg rice (Add salt as needed)."
   },
   "country_chicken_masal": {
     "name": "Country Chicken Masala",
@@ -110,7 +110,7 @@
   },
   "muttan_masala": {
     "name": "Mutton Masala",
-    "desc": "Hearty masala for mutton gravies and dry dishes."
+    "desc": "Hearty masala for mutton gravies and dry dishes. 50g one packet for 1 kg mutton (Do not add salt or chilli powder)."
   },
   "rasam_powder": {
     "name": "Rasam Powder",
@@ -148,10 +148,78 @@
   },
   "iddli_chilly_powder": {
     "name": "Idli Chilli Powder",
-    "desc": "Spicy powder perfect for Idli, Dosa, and Pongal."
+    "desc": "Spicy powder perfect for Idli, Dosa, and Pongal. Available in various quantities as needed."
   },
   "kulambu_chilly_powder": {
     "name": "Kulambu Chilli Powder",
     "desc": "Flavorful chilli powder for South Indian gravies."
+  },
+  "added_to_cart": "Added to cart",
+  "added": "Added!",
+  "in_cart": "In Cart",
+  "quantity_increased": "Quantity increased to",
+  "cart_full": "Cart is full. Please remove some items.",
+  "add_to_cart_error": "Failed to add item to cart",
+  "max_quantity_reached": "Maximum quantity reached",
+  "item_removed": "removed from cart",
+  "remove_item": "Remove item",
+  "clear_cart_confirm": "Are you sure you want to clear your cart?",
+  "cart_cleared": "Cart cleared",
+  "unique_items": "Unique items",
+  "print_cart": "Print Cart",
+  "share_cart": "Share Cart",
+  "share_cart_prefix": "Check out my Preethi Masala cart:",
+  "share_cart_suffix": "Order at: yourdomain.github.io",
+  "copied_to_clipboard": "Cart copied to clipboard!",
+  "select_size": "Select Size",
+  "add_to_cart": "Add to Cart",
+  "watch_demo": "Watch Cooking Demo",
+  "load_error": "Unable to load products. Please try again later.",
+  "your_cart": "Your Cart",
+  "checkout_whatsapp": "Checkout on WhatsApp",
+  "cart_empty": "Your cart is empty",
+  "total_items": "Total items",
+  "whatsapp_order_prefix": "Hi, I would like to order:",
+  "whatsapp_order_suffix": "Please confirm availability.",
+  "loading_products": "Loading products...",
+  "no_products_found": "No products found. Try a different search.",
+  "search_products": "Search products...",
+  "visit_us": "Visit Us",
+  "view_on_map": "View on Map →",
+  "call_us": "Call Us",
+  "email_us": "Email Us",
+  "send_email": "Send Email →",
+  "contact_whatsapp": "Contact us on WhatsApp",
+  "iso_certified": "AN ISO 9001-2000 CERTIFIED COMPANY",
+  "filter_all": "All Products",
+  "filter_masala": "Masala Powders",
+  "filter_ready_mix": "Ready Mixes",
+  "sort_default": "Sort by",
+  "sort_name_asc": "Name (A-Z)",
+  "sort_name_desc": "Name (Z-A)",
+  "testimonials_title": "What Our Customers Say",
+  "testimonial_1_text": "\"The best masala powders I've ever used! Authentic taste and excellent quality. Highly recommended!\"",
+  "testimonial_1_author": "- Ramesh K., Chennai",
+  "testimonial_2_text": "\"Preethi Masala brings back the traditional flavors of my grandmother's cooking. Truly authentic!\"",
+  "testimonial_2_author": "- Priya S., Bangalore",
+  "testimonial_3_text": "\"Fresh, aromatic, and perfectly ground. The sambar powder is a family favorite now!\"",
+  "testimonial_3_author": "- Lakshmi M., Madurai",
+  "recently_viewed": "Recently Viewed",
+  "faq_title": "Frequently Asked Questions",
+  "faq_q1": "How do I place an order?",
+  "faq_a1": "You can add products to your cart and checkout via WhatsApp. Click the \"Checkout on WhatsApp\" button in your cart to send your order directly to us.",
+  "faq_q2": "What sizes are available?",
+  "faq_a2": "Each product is available in multiple sizes (typically 15g, 50g, 250g, 500g). Select your preferred size from the dropdown on each product card.",
+  "faq_q3": "Do you ship outside Tamil Nadu?",
+  "faq_a3": "Yes, we ship across India. Please contact us via WhatsApp or email to discuss shipping options and charges for your location.",
+  "faq_q4": "Are your products preservative-free?",
+  "faq_a4": "Yes, all our masala powders are made with natural ingredients and contain no artificial preservatives or additives. We use traditional methods to ensure freshness and quality.",
+  "product_copied": "Product link copied to clipboard!",
+  "keyboard_shortcuts": "Keyboard Shortcuts",
+  "shortcut_search": "Press '/' to search",
+  "shortcut_cart": "Press 'c' to open cart",
+  "shortcut_esc": "Press 'Esc' to close",
+  "categories": {
+    "Preethi Products": "Preethi Products"
   }
 }
