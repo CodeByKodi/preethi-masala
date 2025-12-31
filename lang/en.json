@@ -169,7 +169,7 @@
   "print_cart": "Print Cart",
   "share_cart": "Share Cart",
   "share_cart_prefix": "Check out my Preethi Masala cart:",
-  "share_cart_suffix": "Order at: yourdomain.github.io",
+  "share_cart_suffix": "Order at: ",
   "copied_to_clipboard": "Cart copied to clipboard!",
   "select_size": "Select Size",
   "add_to_cart": "Add to Cart",

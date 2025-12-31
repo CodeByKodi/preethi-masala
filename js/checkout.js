@@ -8,8 +8,13 @@ class CartManager {
       itemCount: 0,
       totalItems: 0
     };
-    this.maxCartSize = 100; // Maximum items in cart
-    this.maxQuantityPerItem = 50; // Maximum quantity per item
+    // Use config values if available, otherwise use defaults
+    this.maxCartSize = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.cart) 
+      ? APP_CONFIG.cart.maxCartSize 
+      : 100;
+    this.maxQuantityPerItem = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.cart) 
+      ? APP_CONFIG.cart.maxQuantityPerItem 
+      : 50;
     this.loadCart();
     this.validateCart();
   }
@@ -83,20 +88,15 @@ class CartManager {
     });
 
     // Remove duplicates (keep the one with highest quantity)
-    const seen = new Map();
-    this.cart = this.cart.filter(item => {
+    // Better approach: group by key, then keep the one with highest quantity
+    const grouped = new Map();
+    this.cart.forEach(item => {
       const key = `${item.key}_${item.size}`;
-      if (seen.has(key)) {
-        const existing = seen.get(key);
-        if (item.qty > existing.qty) {
-          seen.set(key, item);
-          return true;
-        }
-        return false;
+      if (!grouped.has(key) || item.qty > grouped.get(key).qty) {
+        grouped.set(key, item);
       }
-      seen.set(key, item);
-      return true;
     });
+    this.cart = Array.from(grouped.values());
 
     // If cart was modified, save it
     if (this.cart.length !== originalLength) {
@@ -239,12 +239,15 @@ class CartManager {
 const cartManager = new CartManager();
 let cart = cartManager.getCart(); // Keep for backward compatibility
 
-// XSS protection - escape HTML
-function escapeHtml(text) {
-  if (typeof text !== 'string') return '';
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
+// Note: escapeHtml and showToast are now in utils.js
+// If utils.js is not loaded, provide fallback
+if (typeof escapeHtml === 'undefined') {
+  function escapeHtml(text) {
+    if (typeof text !== 'string') return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
 }
 
 function addToCart(productKey, size) {
@@ -549,7 +552,9 @@ function checkoutWhatsApp() {
   const stats = cartManager.getStats();
   
   if (stats.isEmpty) {
-    showToast(i18next.t('cart_empty', { defaultValue: 'Your cart is empty' }));
+    if (typeof showToast === 'function') {
+      showToast(i18next.t('cart_empty', { defaultValue: 'Your cart is empty' }));
+    }
     return;
   }
 
@@ -564,7 +569,10 @@ function checkoutWhatsApp() {
   message += `\n${i18next.t('unique_items', { defaultValue: 'Unique items' })}: ${stats.itemCount}`;
   message += "\n\n" + i18next.t('whatsapp_order_suffix', { defaultValue: 'Please confirm availability.' });
 
-  const phone = "919787781569";
+  // Use config if available, otherwise fallback
+  const phone = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.contact && APP_CONFIG.contact.phone) 
+    ? APP_CONFIG.contact.phone.whatsapp 
+    : '916369357434';
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
   
@@ -630,7 +638,7 @@ function printCart() {
         <p><strong>Total Items:</strong> ${stats.totalItems}</p>
         <p><strong>Unique Items:</strong> ${stats.itemCount}</p>
       </div>
-      <p><strong>Contact:</strong> preethimasala@gmail.com | 63693 57434</p>
+      <p><strong>Contact:</strong> ${(typeof APP_CONFIG !== 'undefined' && APP_CONFIG.contact) ? APP_CONFIG.contact.email + ' | ' + APP_CONFIG.contact.phone.mobile : 'preethimasala@gmail.com | 63693 57434'}</p>
       <button onclick="window.print()">Print</button>
     </body>
     </html>
@@ -660,7 +668,10 @@ function shareCart() {
   });
   
   message += `\n${i18next.t('total_items', { defaultValue: 'Total items' })}: ${stats.totalItems}`;
-  message += `\n\n${i18next.t('share_cart_suffix', { defaultValue: 'Order at: yourdomain.github.io' })}`;
+  const siteUrl = (typeof APP_CONFIG !== 'undefined' && APP_CONFIG.site) 
+    ? APP_CONFIG.site.domain.replace(/^https?:\/\//, '') // Remove protocol for display
+    : 'yourdomain.github.io';
+  message += `\n\n${i18next.t('share_cart_suffix', { defaultValue: 'Order at: ' })}${siteUrl}`;
 
   if (navigator.share) {
     navigator.share({
@@ -765,34 +776,37 @@ function clearCart() {
   }
 }
 
-function showToast(message, duration = 2000) {
-  const toast = document.getElementById("toast");
-  if (toast) {
-    // Create toast content with icon
-    toast.innerHTML = `
-      <div class="flex items-center gap-3">
-        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-        </svg>
-        <span class="font-medium">${escapeHtml(message)}</span>
-      </div>
-    `;
-    toast.classList.remove("hidden", "opacity-0");
-    toast.classList.add("opacity-100");
-    
-    // Animate in
-    setTimeout(() => {
-      toast.style.transform = 'translateY(0)';
-      toast.style.opacity = '1';
-    }, 10);
-    
-    setTimeout(() => {
-      toast.style.transform = 'translateY(20px)';
-      toast.style.opacity = '0';
+// showToast is now in utils.js - use it if available, otherwise provide fallback
+if (typeof showToast === 'undefined') {
+  function showToast(message, duration = 2000) {
+    const toast = document.getElementById("toast");
+    if (toast) {
+      // Create toast content with icon
+      toast.innerHTML = `
+        <div class="flex items-center gap-3">
+          <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span class="font-medium">${escapeHtml(message)}</span>
+        </div>
+      `;
+      toast.classList.remove("hidden", "opacity-0");
+      toast.classList.add("opacity-100");
+      
+      // Animate in
       setTimeout(() => {
-        toast.classList.add("hidden");
-      }, 300);
-    }, duration);
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+      }, 10);
+      
+      setTimeout(() => {
+        toast.style.transform = 'translateY(20px)';
+        toast.style.opacity = '0';
+        setTimeout(() => {
+          toast.classList.add("hidden");
+        }, 300);
+      }, duration);
+    }
   }
 }
 
