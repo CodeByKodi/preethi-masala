@@ -70,11 +70,14 @@ let currentCategory = 'all';
 let currentSort = 'default';
 let currentProductData = null; // For product detail modal
 
-// XSS protection - escape HTML
-function escapeHtml(text) {
-  const div = document.createElement('div');
-  div.textContent = text;
-  return div.innerHTML;
+// Note: escapeHtml is now in utils.js
+// If utils.js is not loaded, provide fallback
+if (typeof escapeHtml === 'undefined') {
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
 }
 
 async function loadProducts() {

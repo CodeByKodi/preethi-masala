@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 
+# IMPORTANT: Update the domain below with your actual GitHub Pages URL or custom domain
+# Example: https://yourusername.github.io/preethi-masala/sitemap.xml or https://preethimasala.com/sitemap.xml
 Sitemap: https://yourdomain.github.io/sitemap.xml
 
