@@ -213,7 +213,11 @@ async function loadProducts() {
       renderRecentlyViewed();
     }
   } catch (error) {
-    console.error("Failed to load products.json", error);
+    if (typeof handleError === 'function') {
+      handleError(error, 'loadProducts');
+    } else {
+      console.error("Failed to load products.json", error);
+    }
     if (loadingIndicator) loadingIndicator.classList.add('hidden');
     const errorMsg = i18next.t('load_error', { defaultValue: 'Unable to load products. Please try again later.' });
     const productSection = document.getElementById('productSection');
@@ -339,7 +343,11 @@ function addToRecentlyViewed(productKey, productName, productImage) {
     // Update display
     renderRecentlyViewed();
   } catch (error) {
-    console.error('Error saving recently viewed:', error);
+    if (typeof handleError === 'function') {
+      handleError(error, 'addToRecentlyViewed', true); // Silent - not critical
+    } else {
+      console.error('Error saving recently viewed:', error);
+    }
   }
 }
 
@@ -377,7 +385,11 @@ function renderRecentlyViewed() {
     // Update i18n
     if (typeof updateI18nText === 'function') updateI18nText();
   } catch (error) {
-    console.error('Error rendering recently viewed:', error);
+    if (typeof handleError === 'function') {
+      handleError(error, 'renderRecentlyViewed', true); // Silent - not critical
+    } else {
+      console.error('Error rendering recently viewed:', error);
+    }
   }
 }
 

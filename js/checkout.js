@@ -39,7 +39,11 @@ class CartManager {
       
       this.updateMetadata();
     } catch (error) {
-      console.error("Error loading cart:", error);
+      if (typeof handleError === 'function') {
+        handleError(error, 'CartManager.loadCart', true); // Silent - fallback to empty cart
+      } else {
+        console.error("Error loading cart:", error);
+      }
       this.cart = [];
       this.saveCart();
     }
@@ -52,7 +56,11 @@ class CartManager {
       this.updateMetadata();
       localStorage.setItem("cart_metadata", JSON.stringify(this.metadata));
     } catch (error) {
-      console.error("Error saving cart:", error);
+      if (typeof handleError === 'function') {
+        handleError(error, 'CartManager.saveCart', true); // Silent - will show toast if needed
+      } else {
+        console.error("Error saving cart:", error);
+      }
       // Handle quota exceeded error
       if (error.name === 'QuotaExceededError') {
         this.handleStorageFull();

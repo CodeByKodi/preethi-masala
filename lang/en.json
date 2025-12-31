@@ -219,6 +219,9 @@
   "shortcut_search": "Press '/' to search",
   "shortcut_cart": "Press 'c' to open cart",
   "shortcut_esc": "Press 'Esc' to close",
+  "error_occurred": "An error occurred. Please try again.",
+  "offline_mode": "You are offline. Some features may not work.",
+  "back_online": "You are back online!",
   "categories": {
     "Preethi Products": "Preethi Products"
   }
